@@ -22,8 +22,8 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 DIFFICULTY = 3
 lock = Lock()
 
-ifnot DATABASE_URL:
-raise    Runtime Error("DATABASE_URL environment variable is missing")
+if not DATABASE_URL:
+raise Runtime Error("DATABASE_URL environment variable is missing")
 
 def get_db():
 return psycopg2.connect(DATABASE_URL)
